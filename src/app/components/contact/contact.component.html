@@ -1,0 +1,72 @@
+<section class="site-section" id="section-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-5">
+                <div class="section-heading text-center">
+                    <h2>Ponte <strong>en Contacto</strong></h2>
+                </div>
+            </div>
+
+            <div class="col-md-7 mb-5 mb-md-0">
+                <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
+                    <h3 class="mb-5">Contacto</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control px-3 py-4" formControlName="nombre" placeholder="Tu Nombre">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty)">
+                        <div class="container-error-message" *ngIf="nombre.errors.required">
+                            El nombre es obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" formControlName="email" class="form-control px-3 py-4" placeholder="Tu Email">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty)">
+                        <div class="container-error-message" *ngIf="email.errors.required">
+                           El email es obligatorio.
+                        </div>
+                        <div class="container-error-message" *ngIf="(email.dirty) && email.invalid && email.errors.pattern">
+                            El email no es valido.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" formControlName="telefono" class="form-control px-3 py-4" placeholder="Tu Teléfono">
+                    </div>
+                    <div class="form-group mb-5">
+                        <textarea formControlName="mensaje" class="form-control px-3  py-4"cols="30" rows="10" placeholder="Escribe un mensaje"></textarea>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="mensaje.invalid && (mensaje.dirty)">
+                        <div class="container-error-message" *ngIf="mensaje.errors.required">
+                            El mensaje es obligatorio.
+                        </div>
+                        <div class="container-error-message" *ngIf="mensaje.errors.minlength">
+                            El mensaje debe contener al menos 10 caracteres.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-send btn-primary  px-4 py-3" value="Enviar" [disabled]="!contactForm.valid">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 pl-md-5">
+                <h3 class="mb-5">Detalles de Contacto</h3>
+                <ul class="site-contact-details">
+                    <li>
+                        <span class="text-uppercase">Email</span>
+                        ienekamartinezg@gmail.com
+                    </li>
+                    <li>
+                        <span class="text-uppercase">Teléfono</span>
+                        +34 666013284
+                    </li>
+                    <li>
+                        <span class="text-uppercase">Dirección</span>
+                        Hospitalet de Llobregat <br>
+                        Carretera de Collblanc  <br>
+                        Barcelona,España
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
