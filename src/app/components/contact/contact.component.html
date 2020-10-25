@@ -6,10 +6,15 @@
                     <h2>Ponte <strong>en Contacto</strong></h2>
                 </div>
             </div>
-
             <div class="col-md-7 mb-5 mb-md-0">
-                <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
+                <form (ngSubmit)="onSaveForm()">
                     <h3 class="mb-5">Contacto</h3>
+                    <div class="alert alert-success alert-dismissible fade-show" role="alert" *ngIf="alerta">
+                        <strong>Enviado!</strong> Gracias por contactar conmigo.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="form-group">
                         <input type="text" class="form-control px-3 py-4" formControlName="nombre" placeholder="Tu Nombre">
                     </div>

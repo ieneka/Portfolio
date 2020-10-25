@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit {
    }
 
   contactForm: FormGroup;
+  alerta = false;
 
   emailPattern: any = '^[^@]+@[^@]+\.[a-zA-Z]{2,}$';
 
@@ -34,6 +35,7 @@ export class ContactComponent implements OnInit {
 
   onSaveForm(): void {
     if (this.contactForm.valid) {
+      this.alerta = true;
       this.onResetForm();
       console.log('Valid');
     }else {
