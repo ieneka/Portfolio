@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataDbService } from '../../services/data-db.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private dbData: DataDbService) {
+  constructor() {
     this.contactForm = this.createFormGroup();
    }
 
@@ -35,7 +34,6 @@ export class ContactComponent implements OnInit {
 
   onSaveForm(): void {
     if (this.contactForm.valid) {
-      this.dbData.saveMessage(this.contactForm.value);
       this.onResetForm();
       console.log('Valid');
     }else {

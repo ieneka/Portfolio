@@ -9,10 +9,6 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
-import { DataDbService } from './services/data-db.service';
 
 
 
@@ -29,11 +25,8 @@ import { DataDbService } from './services/data-db.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
     ReactiveFormsModule,
   ],
-  providers: [DataDbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

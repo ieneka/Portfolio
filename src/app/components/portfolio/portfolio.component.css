@@ -1,0 +1,12 @@
+.card{
+    background-color: #333333;
+    border-radius: 8px;
+}
+
+.card h5{
+    color: #b2c251;
+}
+.btn{
+    background-color: #b2c251;
+    color: white;
+}
