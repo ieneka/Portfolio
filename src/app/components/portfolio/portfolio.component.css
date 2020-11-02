@@ -10,3 +10,17 @@
     background-color: #b2c251;
     color: white;
 }
+
+img{
+    max-height: 15rem;
+    min-height: 10rem;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: 800;
+}
+.title1{
+    font-size: 2rem;
+    font-weight: 300;
+}
