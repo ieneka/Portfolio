@@ -4,7 +4,6 @@ module.exports = (formulario) => {
  service: 'gmail',
  auth: {
  user: 'ienekamartinezg@gmail.com', // Cambialo por tu email
- pass: 'inkbcn1994' // Cambialo por tu password
  }
  });
 const mailOptions = {
