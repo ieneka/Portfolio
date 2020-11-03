@@ -1,20 +1,24 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
+import { ContactI } from 'src/app/models/contactForm';
+import { MessageService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
 
-  constructor() {
+  constructor(private send: MessageService) {
     this.contactForm = this.createFormGroup();
    }
 
   contactForm: FormGroup;
   alerta = false;
+  formulario: ContactI;
 
   emailPattern: any = '^[^@]+@[^@]+\.[a-zA-Z]{2,}$';
 
@@ -35,10 +39,14 @@ export class ContactComponent implements OnInit {
   }
 
   onSaveForm(): void {
-    if (this.contactForm.valid) {
-      this.alerta = true;
-      this.onResetForm();
-      console.log('Valid');
+    this.formulario = this.contactForm.value;
+    if (this.formulario) {
+      this.send.sendMessage(this.formulario).subscribe(() => {
+        this.alerta = true;
+        this.onResetForm();
+        console.log('Valid');
+      });
+      console.log(this.formulario.nombre);
     }else {
       console.log('Not Valid');
     }
