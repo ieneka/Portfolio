@@ -46,7 +46,7 @@ export class ContactComponent implements OnInit {
         this.onResetForm();
         console.log('Valid');
       });
-      console.log(this.formulario.nombre);
+      console.log(this.formulario);
     }else {
       console.log('Not Valid');
     }

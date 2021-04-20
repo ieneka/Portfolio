@@ -4,6 +4,6 @@ import { HttpClient } from '@angular/common/http';
 export class MessageService {
 constructor(private http: HttpClient) { }
 sendMessage(body) {
- return this.http.post('http://localhost:3000/formulario', body);
+ return this.http.post('https://sending-email-ieneka.herokuapp.com/formulario', body);
  }
 }
